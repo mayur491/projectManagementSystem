@@ -51,7 +51,7 @@ public class Employee {
 	 * ManyToMany Employee to Project
 	 */
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "M_D_EMPLOYEE_PROJECT_RELATION", joinColumns = {
+	@JoinTable(name = "EMPLOYEE_PROJECT_RELATION", joinColumns = {
 			@JoinColumn(name = "EMPLOYEE_ID")
 	}, inverseJoinColumns = {
 			@JoinColumn(name = "PROJECT_ID")

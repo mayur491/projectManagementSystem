@@ -3,8 +3,7 @@ package com.codemayur.pms.constant;
 public final class PmsConstants {
 
 	private PmsConstants() {
-		throw new IllegalStateException(
-				"Constants class!");
+		throw new IllegalStateException("Constants class!");
 	}
 
 	public static final String ADMIN = "admin";

@@ -12,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.codemayur.pms.dto.ProjectDto;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity(name = "Project")
+@Entity(name = "project")
 @Table(name = "PROJECT")
 public class Project {
 
@@ -33,9 +35,6 @@ public class Project {
 	@Column(name = "STATUS")
 	private String status;
 
-	/*
-	 * ManyToMany Project to Employee
-	 */
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "EMPLOYEE_PROJECT_RELATION", joinColumns = {
 			@JoinColumn(name = "PROJECT_ID")
@@ -44,12 +43,15 @@ public class Project {
 	})
 	private Set<Employee> employees;
 
-	/*
-	 * OneToMany Project to Task
-	 */
 	@OneToMany(mappedBy = "project", fetch = FetchType.EAGER)
 	private Set<Task> tasks;
 
+	public Project(
+			ProjectDto projectDto) {
+		super();
+		this.name = projectDto.getName();
+	}
+	
 	public Project(
 			int id,
 			String name,
